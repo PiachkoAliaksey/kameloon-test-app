@@ -1,0 +1,33 @@
+.wrapper-input {
+    width: 100%;
+    padding: 16px 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--background-color-white);
+    border-radius: 24px;
+    border: solid 1px var(--color-grey);
+}
+
+
+.input-search {
+    width: 95%;
+    border: none;
+}
+
+.input-search::placeholder {
+    color: var(--color-grey);
+}
+
+.input-search:focus {
+    outline: none;
+}
+
+.input-tests {
+    width: 5%;
+    color: var(--color-grey);
+    font-size: 14px;
+    line-height: 16.41px;
+    font-family: 'Roboto', sans-serif;
+    text-align: end;
+}

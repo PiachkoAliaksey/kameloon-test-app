@@ -1,0 +1,31 @@
+.wrapper-dashboard {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+.btn-item {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    width: 95px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #2EE5AC;
+    border: none;
+    color: var(--background-color-white);
+    cursor: pointer;
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14.63px;
+    letter-spacing: 0%;
+    text-align: center;
+
+}

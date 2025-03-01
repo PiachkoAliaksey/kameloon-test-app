@@ -1,0 +1,135 @@
+.list-item-test {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.title-section {
+    width: 100%;
+    color: #999999;
+    display: flex;
+    flex-direction: row;
+    padding: 0 13px;
+
+    .name,
+    .type,
+    .status,
+    .site {
+        text-align: start;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .name:hover {
+        color: black;
+    }
+
+    .type:hover {
+        color: black;
+    }
+
+    .status:hover {
+        color: black;
+    }
+
+    .site:hover {
+        color: black;
+    }
+
+    .name {
+        width: 45%;
+    }
+
+    .type {
+        width: 15%;
+    }
+
+    .status {
+        width: 15%;
+    }
+
+    .site {
+        width: 25%;
+    }
+}
+
+.list-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 15px;
+    min-height: 70px;
+    background-color: var(--background-color-white);
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+
+    .color-status-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 4px;
+        background-color: #E14165;
+    }
+
+    .name,
+    .type,
+    .status,
+    .site {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+
+
+    .name {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 15.23px;
+        width: 45%;
+    }
+
+    .type {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14.06px;
+
+        width: 15%;
+    }
+
+    .status {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14.06px;
+        width: 15%;
+    }
+
+    .site {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14.06px;
+        width: 15%;
+    }
+}
+
+.wrapper-not-found {
+    width: 100%;
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
