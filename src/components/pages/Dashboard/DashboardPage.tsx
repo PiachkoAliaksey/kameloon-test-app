@@ -4,15 +4,9 @@ import SearchInput from './SearchInput/SearchInput';
 import TestsList from './TestsList/TestsList';
 import useDataFetch from '../../../hooks/useMockFetch';
 import { TData } from '../../../types';
+import { statusPriority } from '../../../constant';
 
 import './styles.scss';
-
-const statusPriority: Record<string, number> = {
-  ONLINE: 1,
-  PAUSED: 2,
-  STOPPED: 3,
-  DRAFT: 4,
-};
 
 
 const DashboardPage = () => {

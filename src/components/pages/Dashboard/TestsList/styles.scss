@@ -21,20 +21,11 @@
         cursor: pointer;
     }
 
-    .name:hover {
-        color: black;
-    }
-
-    .type:hover {
-        color: black;
-    }
-
-    .status:hover {
-        color: black;
-    }
-
+    .name:hover,
+    .type:hover,
+    .status:hover,
     .site:hover {
-        color: black;
+        color: var(--color-black);
     }
 
     .name {

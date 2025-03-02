@@ -1,7 +1,7 @@
 import searchImg from '../../../../assets/search.svg';
 import { TInput } from '../../../../types';
 
-import './styles.scss'
+import './styles.scss';
 
 
 const SearchInput = ({ setInputValue, inputValue ,sortedArrayLength}: TInput) => {
