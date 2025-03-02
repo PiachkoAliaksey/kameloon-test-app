@@ -9,14 +9,14 @@ const useDataFetch = () => {
     const fetchData = async () => {
         setIsLoading(true);
 
-       await getTestsWithSite().then((res) => {
+        await getTestsWithSite().then((res) => {
             setData(res)
         }).finally(() => setIsLoading(false))
 
     }
 
     useEffect(() => {
-        fetchData()
+        fetchData();
     }, [])
 
     return [isLoading, data] as [boolean, TData[] | undefined]

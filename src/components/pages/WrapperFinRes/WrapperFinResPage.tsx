@@ -1,10 +1,10 @@
-
 import { useEffect, useState } from "react";
-import { TTest } from "../../../types";
-import { getTest } from "../../../api";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import CardItem from "../Dashboard/ListItem/CardItem/CardItem";
+
+import { TTest } from "../../../types";
+import { getTest } from "../../../api";
+import CardItem from "../Dashboard/TestsList/CardItem/CardItem";
 import imgChevron from "../../../assets/Chevron.svg";
 
 import './styles.scss';

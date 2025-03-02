@@ -27,18 +27,20 @@ export type TDataSort = {
 }
 
 export type TListItem = {
-    inputValue: string,
-    setInputValue: React.Dispatch<React.SetStateAction<string>>,
     sortedData: TData[] | undefined,
     handleSortData: (field: string) => void,
     isLoading: boolean,
-    setReset: React.Dispatch<React.SetStateAction<boolean>>
+    handleReset: ()=>void
 }
 
 export type TInput = {
     setInputValue: React.Dispatch<React.SetStateAction<string>>,
     inputValue: string,
-    sortedArray: TData[] | undefined
+    sortedArrayLength: number|undefined
+}
+
+export type TBlockNoResult = {
+    handleReset: () => void
 }
 
 

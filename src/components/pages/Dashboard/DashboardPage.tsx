@@ -1,9 +1,11 @@
-import './styles.scss';
-import Input from './Input/Input';
-import ListItem from './ListItem/ListItem';
 import { useState, useMemo, useCallback } from 'react';
+
+import SearchInput from './SearchInput/SearchInput';
+import TestsList from './TestsList/TestsList';
 import useDataFetch from '../../../hooks/useMockFetch';
 import { TData } from '../../../types';
+
+import './styles.scss';
 
 const statusPriority: Record<string, number> = {
   ONLINE: 1,
@@ -14,36 +16,21 @@ const statusPriority: Record<string, number> = {
 
 
 const DashboardPage = () => {
-  const [inputValue, setInputValue] = useState('');
   const [isLoading, dataTestWithSite] = useDataFetch();
-
+  const [inputValue, setInputValue] = useState('');
   const [sort, setSort] = useState({ field: 'name', order: 'asc' })
-  const [reset, setReset] = useState(false);
 
 
   const sortedArray = useMemo(() => {
     const { field, order } = sort
 
-    if (reset) {
-      return dataTestWithSite
-    }
+    const dataTests = inputValue ? dataTestWithSite?.filter((item) => item.name.includes(inputValue)) : dataTestWithSite
 
-    if (inputValue) {
-      return dataTestWithSite?.filter((item) => item.name.includes(inputValue))
-    }
-
-    if (field === 'status') {
-      const ascSorting = <TData extends Record<string, any>>(item1: TData, item2: TData) => (statusPriority[item1[field]] - statusPriority[item2[field]])
-      const descSorting = <TData extends Record<string, any>>(item1: TData, item2: TData) => (statusPriority[item2[field]] - statusPriority[item1[field]])
-      const comparison = order === 'asc' ? ascSorting : descSorting
-      return dataTestWithSite && dataTestWithSite.sort(comparison)
-    }
-
-    const ascSorting = <TData extends Record<string, any>>(item1: TData, item2: TData) => item1[field].localeCompare(item2[field])
+    const ascSorting = field === 'status' ? <TData extends Record<string, any>>(item1: TData, item2: TData) => (statusPriority[item1[field]] - statusPriority[item2[field]]) : <TData extends Record<string, any>>(item1: TData, item2: TData) => item1[field].localeCompare(item2[field])
     const comparison = order === 'asc' ? ascSorting : (item1: TData, item2: TData) => -ascSorting(item1, item2)
 
-    return dataTestWithSite && dataTestWithSite.sort(comparison)
-  }, [sort, dataTestWithSite, inputValue, reset, setInputValue])
+    return dataTests && dataTests.sort(comparison)
+  }, [sort, dataTestWithSite, inputValue, setInputValue])
 
   const handleSortData = useCallback((field: string) => {
     if (sort.field !== field) {
@@ -52,16 +39,20 @@ const DashboardPage = () => {
     }
 
     setSort({ ...sort, order: sort.order === 'asc' ? 'desc' : 'asc' })
-  }, [sort, dataTestWithSite, inputValue, reset, setInputValue])
+  }, [sort, dataTestWithSite, inputValue, setInputValue])
+
+  const handleReset = () => {
+    setInputValue('');
+  }
 
 
   return (
     <div className='wrapper-dashboard'>
       <h2>Dashboard</h2>
-      <Input sortedArray={sortedArray} inputValue={inputValue} setInputValue={setInputValue} />
-      <ListItem setReset={setReset} isLoading={isLoading} handleSortData={handleSortData} sortedData={sortedArray} setInputValue={setInputValue} inputValue={inputValue} />
+      <SearchInput sortedArrayLength={sortedArray?.length} inputValue={inputValue} setInputValue={setInputValue} />
+      <TestsList handleReset={handleReset} isLoading={isLoading} handleSortData={handleSortData} sortedData={sortedArray} />
     </div>
   )
 }
 
-export default DashboardPage
+export default DashboardPage;

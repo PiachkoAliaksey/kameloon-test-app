@@ -1,10 +1,8 @@
 import './styles.scss';
+import { TBlockNoResult } from '../../../../types';
 
-type TBlockNotResult = {
-    handleReset: () => void
-}
 
-const BlockNotResult = ({ handleReset }: TBlockNotResult) => {
+const NoResult = ({ handleReset }: TBlockNoResult) => {
     return (
         <div className='wrapper-not-found'>
             <h3 className='title-not-found'>Your search did not match any results.</h3>
@@ -13,4 +11,4 @@ const BlockNotResult = ({ handleReset }: TBlockNotResult) => {
     )
 }
 
-export default BlockNotResult;
+export default NoResult;

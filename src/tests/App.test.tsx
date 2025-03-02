@@ -11,6 +11,6 @@ describe('App', () => {
       </BrowserRouter>
     )
 
-    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument()
+    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
   })
 })
